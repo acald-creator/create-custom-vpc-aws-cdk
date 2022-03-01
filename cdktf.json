@@ -2,12 +2,13 @@
   "language": "python",
   "app": "pipenv run python main.py",
   "terraformProviders": [
-    "hashicorp/aws@~> 3.42"
+    "hashicorp/aws@~> 3.67.0"
   ],
-  "terraformModules": [],
+  "terraformModules": ["terraform-aws-modules/vpc/aws@2.77.0"],
   "codeMakerOutput": "imports",
   "context": {
     "excludeStackIdFromLogicalIds": "true",
-"allowSepCharsInLogicalIds": "true"
-  }
+    "allowSepCharsInLogicalIds": "true"
+  },
+  "projectId": "b2b92728-9b99-42d7-8958-fb8734e7b253"
 }

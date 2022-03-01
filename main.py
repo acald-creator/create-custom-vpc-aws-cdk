@@ -2,22 +2,24 @@
 from constructs import Construct
 from cdktf import App, TerraformStack
 from imports.aws import AwsProvider
-from imports.terraform_aws_modules.vpc.aws import Vpc
-
+from imports.terraform_aws_modules.aws import Vpc
 
 class MyStack(TerraformStack):
     def __init__(self, scope: Construct, ns: str):
         super().__init__(scope, ns)
 
-        AwsProvider(self, 'Aws', region='us-east-2')
+        AwsProvider(self, "Aws", region="us-east-1")
 
-        Vpc(self, 'PhoenixVeritasCustomVPC',
-            name='phoenixveritascustomvpc',
-            cidr='13.0.0.0/16',
-            azs=["us-east-2a", "us-east-2b", "us-east-2c"],
-            public_subnets=["13.0.1.0/24", "13.0.2.0.24"],
-            private_subnets=["13.0.3.0/24"]
+        Vpc(
+            self,
+            "FenixVeritasCustomVPC",
+            name="fenixveritascustomvpc",
+            cidr="10.0.0.0/16",
+            azs=["us-east-1a", "us-east-1b", "us-east-1c"],
+            public_subnets=["10.0.1.0/24", "10.0.2.0/24"],
+            private_subnets=["10.0.3.0/24"],
         )
+
 
 app = App()
 MyStack(app, "create-custom-vpc")

@@ -7,4 +7,4 @@ verify_ssl = true
 python_version = "3"
 
 [packages]
-cdktf = "~=0.4.1"
+cdktf = "~=0.9.4"
